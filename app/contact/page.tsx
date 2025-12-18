@@ -64,7 +64,6 @@ export default function Contact() {
     e.preventDefault()
     setIsSubmitting(true)
     
-    // Créer le lien mailto avec les données du formulaire
     const reasonLabels: Record<string, string> = {
       'question': 'Question générale',
       'bug': 'Signaler un bug',
@@ -72,17 +71,43 @@ export default function Contact() {
       'suggestion': 'Suggestion'
     }
     
-    const subject = encodeURIComponent(`[Stream Forge] ${reasonLabels[formData.reason] || 'Contact'} - ${formData.name}`)
-    const body = encodeURIComponent(`Nom: ${formData.name}\nEmail: ${formData.email}\nSujet: ${reasonLabels[formData.reason]}\n\nMessage:\n${formData.message}`)
-    
-    // Ouvrir le client mail
-    window.location.href = `mailto:florian.jove.garcia@gmail.com?subject=${subject}&body=${body}`
-    
-    // Simuler un délai pour le feedback utilisateur
-    await new Promise(resolve => setTimeout(resolve, 1000))
+    try {
+      // Envoi via Web3Forms (service gratuit)
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: 'fcab6da9-159f-4af6-8058-c175f0994cf2',
+          from_name: formData.name,
+          email: formData.email,
+          subject: `[Stream Forge] ${reasonLabels[formData.reason] || 'Contact'} - ${formData.name}`,
+          message: `Nom: ${formData.name}\nEmail: ${formData.email}\nSujet: ${reasonLabels[formData.reason]}\n\nMessage:\n${formData.message}`,
+          to: 'florian.jove.garcia@gmail.com'
+        }),
+      })
+      
+      const result = await response.json()
+      
+      if (result.success) {
+        setIsSubmitted(true)
+      } else {
+        // Fallback vers mailto si Web3Forms échoue
+        const subject = encodeURIComponent(`[Stream Forge] ${reasonLabels[formData.reason] || 'Contact'} - ${formData.name}`)
+        const body = encodeURIComponent(`Nom: ${formData.name}\nEmail: ${formData.email}\nSujet: ${reasonLabels[formData.reason]}\n\nMessage:\n${formData.message}`)
+        window.location.href = `mailto:florian.jove.garcia@gmail.com?subject=${subject}&body=${body}`
+        setIsSubmitted(true)
+      }
+    } catch {
+      // Fallback vers mailto en cas d'erreur
+      const subject = encodeURIComponent(`[Stream Forge] ${reasonLabels[formData.reason] || 'Contact'} - ${formData.name}`)
+      const body = encodeURIComponent(`Nom: ${formData.name}\nEmail: ${formData.email}\nSujet: ${reasonLabels[formData.reason]}\n\nMessage:\n${formData.message}`)
+      window.location.href = `mailto:florian.jove.garcia@gmail.com?subject=${subject}&body=${body}`
+      setIsSubmitted(true)
+    }
     
     setIsSubmitting(false)
-    setIsSubmitted(true)
   }
 
   return (
