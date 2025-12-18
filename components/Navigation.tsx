@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import { useForgeStore } from '@/lib/store'
@@ -9,10 +10,8 @@ import { cn } from '@/lib/utils'
 
 const navItems = [
   { name: 'Configurateur', href: '#configurator' },
-  { name: 'Matériel', href: '#material' },
   { name: 'Académie', href: '#academy' },
   { name: 'Communauté', href: '#community' },
-  { name: 'Hall of Fame', href: '#halloffame' },
 ]
 
 export function Navigation() {
@@ -45,8 +44,14 @@ export function Navigation() {
               whileHover={{ scale: 1.05 }}
               className="flex items-center space-x-3"
             >
-              <div className="w-10 h-10 bg-gradient-to-br from-forge-violet-start to-forge-cyan rounded-lg flex items-center justify-center">
-                <Zap className="w-6 h-6 text-white" />
+              <div className="relative w-12 h-12 rounded-lg overflow-hidden neon-glow-violet flex items-center justify-center">
+                <Image 
+                  src="/logo.png" 
+                  alt="Stream Forge Logo" 
+                  fill
+                  className="object-contain p-1"
+                  priority
+                />
               </div>
               <div>
                 <h1 className="font-display text-xl font-bold gradient-text">

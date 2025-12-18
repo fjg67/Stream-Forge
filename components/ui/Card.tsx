@@ -11,7 +11,18 @@ interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  ({ className, variant = 'glass', hover = true, glow = false, children, ...props }, ref) => {
+  ({ className, variant = 'glass', hover = true, glow = false, children, ...restProps }, ref) => {
+    // Separate motion-incompatible props
+    const {
+      onDrag,
+      onDragStart,
+      onDragEnd,
+      onAnimationStart,
+      onAnimationEnd,
+      onAnimationIteration,
+      ...props
+    } = restProps as any;
+
     const variants = {
       glass: 'glass',
       solid: 'bg-forge-black-light border border-forge-violet-start/30',

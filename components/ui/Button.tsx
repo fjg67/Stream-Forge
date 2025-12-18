@@ -12,8 +12,18 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = 'primary', size = 'md', glow = false, animated = true, children, ...props }, ref) => {
-    const baseStyles = 'relative font-display font-bold uppercase tracking-wider overflow-hidden transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed'
+  ({ className, variant = 'primary', size = 'md', glow = false, animated = true, children, ...restProps }, ref) => {
+    // Separate motion-incompatible props
+    const {
+      onDrag,
+      onDragStart,
+      onDragEnd,
+      onAnimationStart,
+      onAnimationEnd,
+      onAnimationIteration,
+      ...props
+    } = restProps as any;
+    const baseStyles = 'relative font-display font-bold uppercase tracking-wider transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed'
 
     const variants = {
       primary: 'bg-gradient-to-r from-forge-violet-start to-forge-violet-end text-white hover:shadow-2xl hover:scale-105',
@@ -31,15 +41,30 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     const glowStyles = glow ? (variant === 'primary' ? 'neon-glow-violet' : 'neon-glow-cyan') : ''
 
-    const ButtonComponent = animated ? motion.button : 'button'
-    const animationProps = animated ? {
-      whileHover: { scale: 1.05 },
-      whileTap: { scale: 0.95 },
-      transition: { type: 'spring', stiffness: 400, damping: 17 }
-    } : {}
+    if (animated) {
+      return (
+        <motion.button
+          ref={ref}
+          className={cn(
+            baseStyles,
+            variants[variant],
+            sizes[size],
+            glowStyles,
+            'btn-pulse',
+            className
+          )}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+          {...props}
+        >
+          <span className="relative z-10">{children}</span>
+        </motion.button>
+      )
+    }
 
     return (
-      <ButtonComponent
+      <button
         ref={ref}
         className={cn(
           baseStyles,
@@ -49,11 +74,10 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           'btn-pulse',
           className
         )}
-        {...animationProps}
         {...props}
       >
         <span className="relative z-10">{children}</span>
-      </ButtonComponent>
+      </button>
     )
   }
 )

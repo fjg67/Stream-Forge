@@ -3,7 +3,13 @@
     "allow": [
       "Skill(frontend-design)",
       "Bash(start https://github.com/settings/tokens)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git config:*)",
+      "Bash(git remote add:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run dev:*)",
+      "Bash(npm run build:*)"
     ]
   }
 }

@@ -104,24 +104,28 @@ const growthTools = [
     description: 'Planifie ton contenu sur 30 jours',
     icon: Calendar,
     action: 'Télécharger Template',
+    url: '/downloads/calendrier-editorial-stream-forge.csv',
   },
   {
     name: 'Tracker de Croissance',
     description: 'Dashboard pour suivre tes KPIs',
     icon: TrendingUp,
     action: 'Obtenir le Tracker',
+    url: '/downloads/tracker-croissance-stream-forge.csv',
   },
   {
     name: 'Pack Templates Canva',
     description: '50+ designs pour réseaux sociaux',
     icon: Target,
     action: 'Accéder au Pack',
+    url: 'https://www.canva.com/templates/?query=twitch%20streamer',
   },
   {
     name: 'Scripts Vidéo Viraux',
     description: 'Frameworks de vidéos qui marchent',
     icon: Zap,
     action: 'Voir les Scripts',
+    url: '/academy/growth-hacking',
   },
 ]
 
@@ -233,9 +237,17 @@ export function Community() {
                       {tool.name}
                     </h4>
                     <p className="text-sm text-gray-400 mb-4">{tool.description}</p>
-                    <Button variant="ghost" size="sm" className="w-full">
-                      {tool.action}
-                    </Button>
+                    <a 
+                      href={tool.url} 
+                      target={tool.url.startsWith('http') ? '_blank' : '_self'} 
+                      rel="noopener noreferrer"
+                      className="block"
+                      download={tool.url.endsWith('.csv') ? true : undefined}
+                    >
+                      <Button variant="ghost" size="sm" className="w-full">
+                        {tool.action}
+                      </Button>
+                    </a>
                   </CardContent>
                 </Card>
               </motion.div>
