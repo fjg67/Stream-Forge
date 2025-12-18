@@ -399,3 +399,326 @@ body {
     opacity: 0;
   }
 }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   📱 MOBILE-FIRST EXCEPTIONAL STYLES
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* Improve touch targets for mobile */
+@media (max-width: 768px) {
+  /* Bigger touch targets */
+  button, a, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Better text sizing for mobile */
+  html {
+    font-size: 15px;
+  }
+
+  /* Reduce heavy effects on mobile for performance */
+  .neon-glow-violet {
+    box-shadow: 0 0 15px rgba(139, 0, 255, 0.4);
+  }
+  
+  .neon-glow-cyan {
+    box-shadow: 0 0 15px rgba(0, 245, 255, 0.4);
+  }
+
+  /* Optimize glass effect for mobile */
+  .glass {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  /* Reduce blur for better performance */
+  .blur-3xl {
+    filter: blur(40px) !important;
+  }
+
+  /* Better spacing on mobile */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Disable parallax effects on mobile */
+  .hover-tilt:hover {
+    transform: none;
+  }
+
+  /* Disable scanlines on mobile for performance */
+  .ultra-neon::before {
+    display: none;
+  }
+}
+
+/* Small phones */
+@media (max-width: 375px) {
+  html {
+    font-size: 14px;
+  }
+  
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   📱 MOBILE NAVIGATION ENHANCEMENTS
+   ══════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  /* Full-screen mobile menu */
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    background: rgba(11, 11, 15, 0.98);
+    backdrop-filter: blur(20px);
+    z-index: 100;
+  }
+
+  /* Animated menu items */
+  .mobile-menu-item {
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideInMobile 0.3s ease forwards;
+  }
+
+  .mobile-menu-item:nth-child(1) { animation-delay: 0.1s; }
+  .mobile-menu-item:nth-child(2) { animation-delay: 0.15s; }
+  .mobile-menu-item:nth-child(3) { animation-delay: 0.2s; }
+  .mobile-menu-item:nth-child(4) { animation-delay: 0.25s; }
+  .mobile-menu-item:nth-child(5) { animation-delay: 0.3s; }
+
+  @keyframes slideInMobile {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   📱 MOBILE CARDS & CONTENT
+   ══════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  /* Card hover effects - touch friendly */
+  .card-hover-lift:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+
+  /* Swipe hint animation for scrollable areas */
+  .swipe-hint {
+    position: relative;
+  }
+
+  .swipe-hint::after {
+    content: '👆 Glisse';
+    position: absolute;
+    bottom: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+    animation: swipeHint 2s ease infinite;
+  }
+
+  @keyframes swipeHint {
+    0%, 100% { opacity: 0.4; transform: translateX(-50%); }
+    50% { opacity: 1; transform: translateX(-40%); }
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   📱 MOBILE ANIMATIONS (Optimized)
+   ══════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  /* Reduce animation intensity on mobile */
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .gradient-text {
+    animation-duration: 5s;
+  }
+
+  /* Simplified pulse animation */
+  .animate-pulse-glow {
+    animation: simplePulse 2s ease-in-out infinite;
+  }
+
+  @keyframes simplePulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   📱 MOBILE FORM STYLES
+   ══════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  input, textarea, select {
+    font-size: 16px !important; /* Prevents iOS zoom on focus */
+  }
+
+  /* Better form spacing on mobile */
+  form > div {
+    margin-bottom: 1.25rem;
+  }
+
+  /* Larger checkboxes and radios */
+  input[type="checkbox"],
+  input[type="radio"] {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   📱 MOBILE SCROLLBAR (Hidden for cleaner look)
+   ══════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  /* Hide scrollbar on mobile for cleaner look */
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  /* Horizontal scroll containers */
+  .overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   📱 MOBILE FLOATING ACTION BUTTON
+   ══════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .mobile-fab {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #8B00FF 0%, #00F5FF 100%);
+    box-shadow: 0 4px 20px rgba(139, 0, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    animation: fabPulse 2s ease infinite;
+  }
+
+  @keyframes fabPulse {
+    0%, 100% {
+      box-shadow: 0 4px 20px rgba(139, 0, 255, 0.5);
+    }
+    50% {
+      box-shadow: 0 4px 30px rgba(139, 0, 255, 0.8), 0 0 60px rgba(0, 245, 255, 0.4);
+    }
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   📱 SAFE AREA INSETS (for notched phones)
+   ══════════════════════════════════════════════════════════════════════════ */
+
+@supports (padding: max(0px)) {
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  .fixed-bottom {
+    padding-bottom: max(24px, env(safe-area-inset-bottom));
+  }
+
+  .fixed-top {
+    padding-top: max(24px, env(safe-area-inset-top));
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   📱 LANDSCAPE MODE ADJUSTMENTS
+   ══════════════════════════════════════════════════════════════════════════ */
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .min-h-screen {
+    min-height: 100vh;
+  }
+
+  /* Reduce vertical spacing in landscape */
+  .py-16, .py-20, .py-24 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   📱 LOADING STATES (Mobile optimized)
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.mobile-skeleton {
+  background: linear-gradient(90deg, 
+    rgba(139, 0, 255, 0.1) 0%, 
+    rgba(0, 245, 255, 0.2) 50%, 
+    rgba(139, 0, 255, 0.1) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmerMobile 1.5s ease-in-out infinite;
+  border-radius: 8px;
+}
+
+@keyframes shimmerMobile {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   📱 BOTTOM NAVIGATION BAR (Optional enhancement)
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.mobile-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(11, 11, 15, 0.95);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(139, 0, 255, 0.3);
+  padding: 8px 16px;
+  padding-bottom: max(8px, env(safe-area-inset-bottom));
+  display: flex;
+  justify-content: space-around;
+  z-index: 50;
+}
+
+.mobile-bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 16px;
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.2s ease;
+}
+
+.mobile-bottom-nav-item.active {
+  color: #00F5FF;
+}
+
+.mobile-bottom-nav-item:active {
+  transform: scale(0.9);
+}
+
