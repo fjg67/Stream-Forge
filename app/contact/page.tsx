@@ -70,6 +70,105 @@ export default function Contact() {
       'partnership': 'Partenariat',
       'suggestion': 'Suggestion'
     }
+
+    const reasonEmojis: Record<string, string> = {
+      'question': '❓',
+      'bug': '🐛',
+      'partnership': '🤝',
+      'suggestion': '💡'
+    }
+
+    const reasonColors: Record<string, string> = {
+      'question': '#3B82F6',
+      'bug': '#EF4444',
+      'partnership': '#8B5CF6',
+      'suggestion': '#F59E0B'
+    }
+
+    // Template HTML élégant pour l'email
+    const htmlMessage = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #0B0B0F;">
+  <div style="max-width: 600px; margin: 0 auto; background: linear-gradient(135deg, #0B0B0F 0%, #1a1a2e 100%); border-radius: 16px; overflow: hidden; border: 1px solid rgba(139, 0, 255, 0.3);">
+    
+    <!-- Header -->
+    <div style="background: linear-gradient(135deg, #8B00FF 0%, #00F5FF 50%, #C64BFF 100%); padding: 30px; text-align: center;">
+      <h1 style="margin: 0; color: white; font-size: 28px; font-weight: bold; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">
+        🎮 STREAM FORGE
+      </h1>
+      <p style="margin: 10px 0 0 0; color: rgba(255,255,255,0.9); font-size: 14px;">
+        Nouveau message de contact
+      </p>
+    </div>
+
+    <!-- Badge de type -->
+    <div style="padding: 20px; text-align: center; border-bottom: 1px solid rgba(139, 0, 255, 0.2);">
+      <span style="display: inline-block; background-color: ${reasonColors[formData.reason]}20; color: ${reasonColors[formData.reason]}; padding: 8px 20px; border-radius: 20px; font-size: 14px; font-weight: 600; border: 1px solid ${reasonColors[formData.reason]}50;">
+        ${reasonEmojis[formData.reason]} ${reasonLabels[formData.reason]}
+      </span>
+    </div>
+
+    <!-- Contenu principal -->
+    <div style="padding: 30px;">
+      
+      <!-- Info expéditeur -->
+      <div style="background: rgba(139, 0, 255, 0.1); border-radius: 12px; padding: 20px; margin-bottom: 20px; border-left: 4px solid #8B00FF;">
+        <h3 style="margin: 0 0 15px 0; color: #8B00FF; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">
+          👤 Expéditeur
+        </h3>
+        <table style="width: 100%;">
+          <tr>
+            <td style="color: #888; padding: 5px 0; width: 80px;">Nom:</td>
+            <td style="color: #fff; padding: 5px 0; font-weight: 600;">${formData.name}</td>
+          </tr>
+          <tr>
+            <td style="color: #888; padding: 5px 0;">Email:</td>
+            <td style="color: #00F5FF; padding: 5px 0;">
+              <a href="mailto:${formData.email}" style="color: #00F5FF; text-decoration: none;">${formData.email}</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Message -->
+      <div style="background: rgba(0, 245, 255, 0.05); border-radius: 12px; padding: 20px; border-left: 4px solid #00F5FF;">
+        <h3 style="margin: 0 0 15px 0; color: #00F5FF; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">
+          💬 Message
+        </h3>
+        <p style="color: #E0E0E0; line-height: 1.8; margin: 0; white-space: pre-wrap; font-size: 15px;">
+${formData.message}
+        </p>
+      </div>
+
+      <!-- Bouton répondre -->
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="mailto:${formData.email}?subject=Re: [Stream Forge] ${reasonLabels[formData.reason]}" 
+           style="display: inline-block; background: linear-gradient(135deg, #8B00FF 0%, #C64BFF 100%); color: white; padding: 14px 40px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; box-shadow: 0 4px 20px rgba(139, 0, 255, 0.4);">
+          ✉️ Répondre à ${formData.name}
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div style="background: rgba(0, 0, 0, 0.3); padding: 20px; text-align: center; border-top: 1px solid rgba(139, 0, 255, 0.2);">
+      <p style="margin: 0; color: #666; font-size: 12px;">
+        📅 Reçu le ${new Date().toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' })}
+      </p>
+      <p style="margin: 10px 0 0 0; color: #888; font-size: 11px;">
+        Stream Forge - L'Atelier du Streamer 🚀
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>
+`
     
     try {
       // Envoi via Web3Forms (service gratuit)
@@ -80,11 +179,11 @@ export default function Contact() {
         },
         body: JSON.stringify({
           access_key: 'fcab6da9-159f-4af6-8058-c175f0994cf2',
-          from_name: formData.name,
+          from_name: `${reasonEmojis[formData.reason]} ${formData.name}`,
           email: formData.email,
-          subject: `[Stream Forge] ${reasonLabels[formData.reason] || 'Contact'} - ${formData.name}`,
-          message: `Nom: ${formData.name}\nEmail: ${formData.email}\nSujet: ${reasonLabels[formData.reason]}\n\nMessage:\n${formData.message}`,
-          to: 'florian.jove.garcia@gmail.com'
+          subject: `${reasonEmojis[formData.reason]} [Stream Forge] ${reasonLabels[formData.reason]} - ${formData.name}`,
+          message: htmlMessage,
+          replyto: formData.email
         }),
       })
       
