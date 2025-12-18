@@ -91,7 +91,7 @@ Vous pouvez gérer vos préférences de cookies à tout moment via le bandeau de
 • **Droit d'opposition** : Vous opposer au traitement de vos données
 • **Droit de limitation** : Limiter le traitement de vos données
 
-Pour exercer ces droits, contactez-nous à : privacy@streamforge.fr`
+Pour exercer ces droits, contactez-nous à : florian.jove.garcia@gmail.com`
   },
   {
     id: 'transferts',
@@ -285,7 +285,7 @@ export default function Confidentialite() {
             <Link href="/contact">
               <Button variant="primary" size="lg" glow>
                 <Mail className="w-5 h-5 mr-2" />
-                privacy@streamforge.fr
+                florian.jove.garcia@gmail.com
               </Button>
             </Link>
           </motion.div>

@@ -36,7 +36,7 @@ const sections = [
     title: "Direction de la Publication",
     content: [
       { label: "Directeur de la publication", value: "Florian Directeur" },
-      { label: "Email", value: "direction@streamforge.fr" },
+      { label: "Email", value: "florian.jove.garcia@gmail.com" },
       { label: "Téléphone", value: "+33 1 23 45 67 89" },
     ]
   },

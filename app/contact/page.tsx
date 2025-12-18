@@ -64,8 +64,22 @@ export default function Contact() {
     e.preventDefault()
     setIsSubmitting(true)
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000))
+    // Créer le lien mailto avec les données du formulaire
+    const reasonLabels: Record<string, string> = {
+      'question': 'Question générale',
+      'bug': 'Signaler un bug',
+      'partnership': 'Partenariat',
+      'suggestion': 'Suggestion'
+    }
+    
+    const subject = encodeURIComponent(`[Stream Forge] ${reasonLabels[formData.reason] || 'Contact'} - ${formData.name}`)
+    const body = encodeURIComponent(`Nom: ${formData.name}\nEmail: ${formData.email}\nSujet: ${reasonLabels[formData.reason]}\n\nMessage:\n${formData.message}`)
+    
+    // Ouvrir le client mail
+    window.location.href = `mailto:florian.jove.garcia@gmail.com?subject=${subject}&body=${body}`
+    
+    // Simuler un délai pour le feedback utilisateur
+    await new Promise(resolve => setTimeout(resolve, 1000))
     
     setIsSubmitting(false)
     setIsSubmitted(true)
@@ -281,7 +295,9 @@ export default function Contact() {
                 <div className="bg-white/[0.02] backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-pink-500/30 transition-all">
                   <Mail className="w-8 h-8 text-pink-400 mb-3" />
                   <h3 className="font-display text-lg font-bold text-white mb-1">Email</h3>
-                  <p className="text-gray-400 text-sm">contact@streamforge.fr</p>
+                  <a href="mailto:florian.jove.garcia@gmail.com" className="text-gray-400 text-sm hover:text-pink-400 transition-colors">
+                    florian.jove.garcia@gmail.com
+                  </a>
                 </div>
                 <div className="bg-white/[0.02] backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-cyan-500/30 transition-all">
                   <Clock className="w-8 h-8 text-cyan-400 mb-3" />
@@ -296,7 +312,9 @@ export default function Contact() {
                 <div className="bg-white/[0.02] backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-amber-500/30 transition-all">
                   <Zap className="w-8 h-8 text-amber-400 mb-3" />
                   <h3 className="font-display text-lg font-bold text-white mb-1">Urgence</h3>
-                  <p className="text-gray-400 text-sm">support@streamforge.fr</p>
+                  <a href="mailto:florian.jove.garcia@gmail.com" className="text-gray-400 text-sm hover:text-amber-400 transition-colors">
+                    florian.jove.garcia@gmail.com
+                  </a>
                 </div>
               </div>
 

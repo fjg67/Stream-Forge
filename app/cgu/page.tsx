@@ -179,7 +179,7 @@ Centre de Médiation et d'Arbitrage de Paris (CMAP)
 www.cmap.fr
 
 **Contact :**
-Pour toute question : legal@streamforge.fr`
+Pour toute question : florian.jove.garcia@gmail.com`
   },
 ]
 
