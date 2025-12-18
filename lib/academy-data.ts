@@ -48,7 +48,7 @@ Que tu aies un budget serré ou un setup plus conséquent, ce cours t'accompagne
     difficulty: 'Débutant',
     instructor: 'JOVE GARCIA Florian',
     instructorBio: 'Expert streaming et formateur passionné',
-    lastUpdated: 'Décembre 2024',
+    lastUpdated: 'Décembre 2025',
     whatYouLearn: [
       'Choisir la meilleure plateforme pour ton contenu',
       'Configurer ton matériel de streaming de A à Z',
@@ -107,7 +107,7 @@ Tu apprendras à créer des scènes professionnelles, configurer tes sources aud
     difficulty: 'Intermédiaire',
     instructor: 'JOVE GARCIA Florian',
     instructorBio: 'Expert streaming et formateur passionné',
-    lastUpdated: 'Décembre 2024',
+    lastUpdated: 'Décembre 2025',
     whatYouLearn: [
       'Maîtriser l\'interface OBS comme un pro',
       'Créer des scènes complexes multi-sources',
@@ -176,7 +176,7 @@ Tu apprendras à utiliser Photoshop, Figma (gratuit !) et After Effects pour cr�
     difficulty: 'Avancé',
     instructor: 'JOVE GARCIA Florian',
     instructorBio: 'Expert streaming et formateur passionné',
-    lastUpdated: 'Novembre 2024',
+    lastUpdated: 'Novembre 2025',
     whatYouLearn: [
       'Principes de design pour le streaming',
       'Créer des overlays pro dans Photoshop',
@@ -240,7 +240,7 @@ Ce cours couvre toutes les plateformes d'alertes populaires : Streamlabs, Stream
     difficulty: 'Intermédiaire',
     instructor: 'JOVE GARCIA Florian',
     instructorBio: 'Expert streaming et formateur passionné',
-    lastUpdated: 'Décembre 2024',
+    lastUpdated: 'Décembre 2025',
     whatYouLearn: [
       'Configurer Streamlabs parfaitement',
       'Maîtriser StreamElements',
@@ -298,7 +298,7 @@ Tu découvriras les outils de multistream (Restream, Owncast), apprendras à gé
     difficulty: 'Avancé',
     instructor: 'JOVE GARCIA Florian',
     instructorBio: 'Expert streaming et formateur passionné',
-    lastUpdated: 'Novembre 2024',
+    lastUpdated: 'Novembre 2025',
     whatYouLearn: [
       'Streamer sur plusieurs plateformes légalement',
       'Configurer Restream.io parfaitement',
@@ -348,7 +348,7 @@ Tu découvriras les outils de multistream (Restream, Owncast), apprendras à gé
     modules: 18,
     students: 21093,
     description: 'Subs, bits, dons, sponsors, affiliation Amazon, YouTube Revenue',
-    longDescription: `Transforme ta passion en revenus avec ce guide complet de la monétisation. Découvre TOUTES les sources de revenus possibles pour un streamer en 2024.
+    longDescription: `Transforme ta passion en revenus avec ce guide complet de la monétisation. Découvre TOUTES les sources de revenus possibles pour un streamer en 2025.
 
 Des subs Twitch à l'affiliation Amazon, des sponsors aux dons PayPal, en passant par Patreon et le merch, tu auras une vision à 360° pour construire un business durable autour de ton contenu. Inclut des templates de contrats et un simulateur de revenus.`,
     icon: 'Trophy',
@@ -356,7 +356,7 @@ Des subs Twitch à l'affiliation Amazon, des sponsors aux dons PayPal, en passan
     difficulty: 'Expert',
     instructor: 'JOVE GARCIA Florian',
     instructorBio: 'Expert streaming et formateur passionné',
-    lastUpdated: 'Décembre 2024',
+    lastUpdated: 'Décembre 2025',
     whatYouLearn: [
       'Toutes les sources de revenus possibles',
       'Devenir Affiliate puis Partner Twitch',
@@ -419,7 +419,7 @@ Comprends comment fonctionnent réellement les algorithmes Twitch, YouTube et Ti
     difficulty: 'Expert',
     instructor: 'JOVE GARCIA Florian',
     instructorBio: 'Expert streaming et formateur passionné',
-    lastUpdated: 'Décembre 2024',
+    lastUpdated: 'Décembre 2025',
     whatYouLearn: [
       'Comment fonctionnent les algorithmes',
       'Créer du contenu viral systématiquement',

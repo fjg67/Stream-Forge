@@ -103,7 +103,7 @@ export const LESSON_CONTENTS: LessonContent[] = [
       {
         type: 'example',
         title: 'Success Story : De 0 à Partner en 6 mois',
-        content: `Thomas, 23 ans, a commencé à streamer Valorant en janvier 2024. Sans aucune audience préalable, il streamait 4 soirs par semaine. En créant du contenu TikTok à partir de ses clips, il a atteint 5000 followers en 3 mois. En juin, il était Partner Twitch avec 500 viewers moyens. Aujourd'hui, c'est son métier à temps plein.`
+        content: `Thomas, 23 ans, a commencé à streamer Valorant en janvier 2025. Sans aucune audience préalable, il streamait 4 soirs par semaine. En créant du contenu TikTok à partir de ses clips, il a atteint 5000 followers en 3 mois. En juin, il était Partner Twitch avec 500 viewers moyens. Aujourd'hui, c'est son métier à temps plein.`
       },
       {
         type: 'warning',
@@ -4372,7 +4372,7 @@ Nomme tes fichiers clairement : "webcam_frame_v2.png"`
     courseSlug: 'growth-hacking',
     lessonId: 9,
     sections: [
-      { type: 'intro', content: `TikTok est la meilleure source de nouveaux viewers pour les streamers en 2024. Voici la stratégie complète ! 📱` },
+      { type: 'intro', content: `TikTok est la meilleure source de nouveaux viewers pour les streamers en 2025. Voici la stratégie complète ! 📱` },
       { type: 'steps', title: 'De 0 à 10k sur TikTok', content: 'La méthode :', items: ['1. Poste 1-3 clips/jour', '2. Format vertical 9:16', '3. Texte sur écran (sous-titres)', '4. Hook en 1 seconde', '5. Trending sounds quand pertinent', '6. Appel à action ("Live tous les soirs !")'] },
       { type: 'warning', title: 'Régularité', content: `TikTok récompense la régularité. Mieux vaut poster 1 vidéo/jour pendant 30 jours que 30 vidéos en 1 jour. L'algo aime la constance.` }
     ],

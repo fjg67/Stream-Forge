@@ -1,5 +1,5 @@
 // Stream Forge - Base de données produits streaming COMPLETE
-// Prix réels basés sur le marché français (Amazon, LDLC, Thomann, Boulanger) - Décembre 2024
+// Prix réels basés sur le marché français (Amazon, LDLC, Thomann, Boulanger) - Décembre 2025
 
 export interface Product {
   name: string
